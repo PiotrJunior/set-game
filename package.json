@@ -1,0 +1,23 @@
+{
+  "name": "set-game",
+  "version": "1.0.0",
+  "description": "A multiplayer set game",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiotrJunior/set-game.git"
+  },
+  "author": "Piotr Maksymiuk",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/PiotrJunior/set-game/issues"
+  },
+  "homepage": "https://github.com/PiotrJunior/set-game#readme",
+  "dependencies": {
+    "electron": "^6.0.4",
+    "jquery": "^3.4.1"
+  }
+}

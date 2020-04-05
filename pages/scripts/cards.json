@@ -1,0 +1,22 @@
+{
+    "patterns": [
+        "<pattern id='stripes0' patternUnits='userSpaceOnUse' width='4' height='4'><path d='M0,0 l4,0' style='stroke-width:2;stroke:#33cc33'/></pattern>",
+        "<pattern id='stripes1' patternUnits='userSpaceOnUse' width='4' height='4'><path d='M0,0 l4,0' style='stroke-width:2;stroke:#9900ff'/></pattern>",
+        "<pattern id='stripes2' patternUnits='userSpaceOnUse' width='4' height='4'><path d='M0,0 l4,0' style='stroke-width:2;stroke:#ff3300'/></pattern>"
+    ],
+    "colors": [
+        "#33cc33",
+        "#9900ff",
+        "#ff3300"
+    ],
+    "shapes": [
+        "<rect x='15' y='20' rx='35' ry='35' width='70' height='160' style='stroke-width:5;stroke:currentColor;",
+        "<rect x='15' y='20' width='70' height='160' style='stroke-width:5;stroke:currentColor;",
+        "<polygon points='50,20 85,100 50,180 15,100' style='stroke-width:5;stroke:currentColor;"
+    ],
+    "fills": [
+        "fill:none;",
+        "fill:currentColor",
+        "fill:url(#stripes"
+    ]
+}
