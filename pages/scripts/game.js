@@ -5,15 +5,13 @@ window.$ = window.jQuery = require('jquery')
 cards = JSON.parse(fs.readFileSync(__dirname +'/scripts/cards.json'))
 set = new Set()
 
-function render(card) {
-    svg = '<svg height="200" width="100" style="color:'+cards.colors[card.color]+';">'
-    svg += cards.patterns[card.color];
-    svg += cards.shapes[card.shape]
-    svg += cards.fills[card.fill] + ( card.fill == 2 ? card.color + ')' : '' )
-    svg += "'/></svg>"
-    svg = svg.repeat(card.number+1)
-    return svg
-}
+ipcRenderer.on('gameUpdate', (event, arg) => {
+    table = arg.table
+    $('#table').empty()
+    for(let i = 0; i < table.length; i++) {
+        $('#table').append('<div class="card" onclick="addToSet()">' + render(table[i]) + '</div>')
+    }
+})
 
 function addToSet() {
     elem = event.srcElement
@@ -41,13 +39,16 @@ function addToSet() {
     }
 }
 
+function render(card) {
+    svg = '<svg height="200" width="100" style="color:'+cards.colors[card.color]+';">'
+    svg += cards.patterns[card.color];
+    svg += cards.shapes[card.shape]
+    svg += cards.fills[card.fill] + ( card.fill == 2 ? card.color + ')' : '' )
+    svg += "'/></svg>"
+    svg = svg.repeat(card.number+1)
+    return svg
+}
+
 window.onload = function() {
     ipcRenderer.send('gameReady', true)
 }
-
-ipcRenderer.on('gameUpdate', (event, arg) => {
-    $('#table').empty()
-    for(let i = 0; i < arg.length; i++) {
-        $('#table').append('<div class="card" onclick="addToSet()">' + render(arg[i]) + '</div>')
-    }
-})
