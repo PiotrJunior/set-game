@@ -6,6 +6,7 @@ cards = JSON.parse(fs.readFileSync(__dirname +'/scripts/cards.json'))
 set = new Set()
 
 ipcRenderer.on('gameUpdate', (event, arg) => {
+    console.log(arg)
     table = arg.table
     $('#table').empty()
     for(let i = 0; i < table.length; i++) {
@@ -31,7 +32,6 @@ function addToSet() {
 
     if(set.size == 3) {
         ipcRenderer.send('setFound', Array.from(set))
-        console.log(set)
         for(let item of set) {
             $('.card')[item].classList.remove('active')
         }

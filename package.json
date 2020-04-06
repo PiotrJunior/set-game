@@ -4,7 +4,8 @@
   "description": "A multiplayer set game",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "start-server": "electron server/host.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/PiotrJunior/set-game#readme",
   "dependencies": {
     "electron": "^6.0.4",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "net": "^1.0.2"
   }
 }

@@ -10,13 +10,12 @@ ipcRenderer.on('newGame', (event, arg) => {
     for(; setTable.usedCards < 12; setTable.usedCards++) {
         setTable.table[setTable.usedCards] = setOrder[setTable.usedCards]
     }
-    console.log('game started')
-    console.log(setTable)
     ipcRenderer.send('serverUpdate', setTable)
 })
 
 ipcRenderer.on('tableQuery', (event, arg) => {
-    event.reply('serverUpdate', setTable)
+    console.log(setTable)
+    ipcRenderer.send('serverUpdate', setTable)
 })
 
 ipcRenderer.on('setFound', (event, set) => {
@@ -30,7 +29,7 @@ ipcRenderer.on('setFound', (event, set) => {
             }
         }
         setTable.table = setTable.table.filter( (x) => {return x != null} )
-        event.reply('gameUpdate',setTable.table)
+        ipcRenderer.send('serverUpdate', setTable)
     }
 })
 
@@ -39,11 +38,10 @@ ipcRenderer.on('addCards', (event, arg) => {
         setTable.table[setTable.table.length] = setOrder[setTable.usedCards]
         setTable.usedCards++
     }
-    event.reply('gameUpdate', setTable.table)
+    ipcRenderer.send('serverUpdate', setTable)
 })
 
 function isSet(set) {
-    console.log()
     if( new Set( set.map((x) => {return setTable.table[x].number}) ).size == 2 ) return false
     if( new Set( set.map((x) => {return setTable.table[x].color}) ).size == 2 ) return false
     if( new Set( set.map((x) => {return setTable.table[x].shape}) ).size == 2 ) return false
@@ -52,7 +50,7 @@ function isSet(set) {
 }
 
 function newSetOrder() {
-    table = []
+    let table = []
     for(let number = 0; number < 3; number++) {
         for(let color = 0; color < 3; color++) {
             for(let shape = 0; shape < 3; shape++) {
