@@ -5,15 +5,6 @@ const port = 17256
 const host = '192.168.1.142'
 
 app.on('ready', () => {
-    tray = new Tray('server/icon.png')
-    const contextMenu = Menu.buildFromTemplate([
-        { label: 'Set server is runnng'},
-        { label: 'Turn off', click: () => {app.quit()} }
-    ])
-
-    tray.setToolTip('Players connected: 0')
-    tray.setContextMenu(contextMenu)
-
     serverProcess = new BrowserWindow({
         show: false,
         webPreferences: {
@@ -25,6 +16,16 @@ app.on('ready', () => {
     ipcMain.once('serverReady', (eventServer, readyServer) => {
         eventServer.reply('newGame', {})
     })
+
+    tray = new Tray('server/icon.png')
+    const contextMenu = Menu.buildFromTemplate([
+        { label: 'Set server is runnng'},
+        { label: 'New game', click: () => {serverProcess.webContents.send('newGame', {})} },
+        { label: 'Turn off', click: () => {app.quit()} }
+    ])
+
+    tray.setToolTip('Players connected: 0')
+    tray.setContextMenu(contextMenu)
 })
 
 const server = net.createServer();

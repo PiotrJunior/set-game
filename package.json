@@ -1,11 +1,12 @@
 {
   "name": "set-game",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "A multiplayer set game",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "start-server": "electron server/host.js"
+    "start-server": "electron server/host.js",
+    "build": "electron-packager . Set --icon=assets/icon.ico --asar"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,11 @@
   },
   "homepage": "https://github.com/PiotrJunior/set-game#readme",
   "dependencies": {
-    "electron": "^6.0.4",
     "jquery": "^3.4.1",
     "net": "^1.0.2"
+  },
+  "devDependencies": {
+    "electron": "^6.1.9",
+    "electron-packager": "^14.2.1"
   }
 }
