@@ -6,13 +6,21 @@
   "scripts": {
     "start": "electron .",
     "start-server": "electron server/host.js",
-    "build": "electron-packager . Set --icon=assets/icon.ico --asar"
+    "build": "electron-builder build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PiotrJunior/set-game.git"
   },
-  "author": "Piotr Maksymiuk",
+  "build": {
+      "appId": "com.piotrjunior.setgame",
+      "win": {
+          "target": "NSIS",
+          "icon": "assets/icon.ico",
+          "asar": false
+      }
+  },
+  "author": "Piotr Maksymiuk <2003piotr@gmail.com>",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/PiotrJunior/set-game/issues"
@@ -24,6 +32,6 @@
   },
   "devDependencies": {
     "electron": "^6.1.9",
-    "electron-packager": "^14.2.1"
+    "electron-builder": "^22.4.1"
   }
 }
