@@ -14,10 +14,17 @@
   },
   "build": {
       "appId": "com.piotrjunior.setgame",
+      "productName": "Set",
       "win": {
           "target": "NSIS",
           "icon": "assets/icon.ico",
           "asar": false
+      },
+      "nsis" : {
+          "oneClick": false,
+          "license": "LICENSE",
+          "allowToChangeInstallationDirectory": true,
+          "deleteAppDataOnUninstall": true
       }
   },
   "author": "Piotr Maksymiuk <2003piotr@gmail.com>",
