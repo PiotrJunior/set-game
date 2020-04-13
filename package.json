@@ -1,6 +1,6 @@
 {
   "name": "set-game",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "description": "A multiplayer set game",
   "main": "main.js",
   "scripts": {
