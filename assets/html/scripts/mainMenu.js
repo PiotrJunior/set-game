@@ -23,3 +23,7 @@ window.onload = () => {
         ipcRenderer.send('startMulti', {})
     })
 }
+
+ipcRenderer.on('message', (event, arg) => {
+    $('#message').append(arg + '<br>')
+})

@@ -14,19 +14,19 @@
     "url": "git+https://github.com/PiotrJunior/set-game.git"
   },
   "build": {
-      "appId": "com.piotrjunior.setgame",
-      "productName": "Set",
-      "win": {
-          "target": "NSIS",
-          "icon": "assets/icon.ico",
-          "asar": false
-      },
-      "nsis" : {
-          "oneClick": false,
-          "license": "LICENSE",
-          "allowToChangeInstallationDirectory": true,
-          "deleteAppDataOnUninstall": true
-      }
+    "appId": "com.piotrjunior.setgame",
+    "productName": "Set",
+    "win": {
+      "target": "NSIS",
+      "icon": "assets/icon.ico",
+      "asar": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "license": "LICENSE",
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true
+    }
   },
   "author": "Piotr Maksymiuk <2003piotr@gmail.com>",
   "license": "GPL-3.0-or-later",
@@ -35,6 +35,8 @@
   },
   "homepage": "https://github.com/PiotrJunior/set-game#readme",
   "dependencies": {
+    "electron-log": "^4.1.1",
+    "electron-updater": "^4.2.5",
     "jquery": "^3.4.1",
     "net": "^1.0.2"
   },
