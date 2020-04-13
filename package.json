@@ -1,12 +1,13 @@
 {
   "name": "set-game",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A multiplayer set game",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "start-server": "electron server/host.js",
-    "build": "electron-builder build"
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
   },
   "repository": {
     "type": "git",
